@@ -1,10 +1,10 @@
 # Slacked
 
-A simple and easy way to send notifications to Slack from your application.
+A simple and easy way to send notifications to Slack from your Rails application. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
 
 ## Getting Started
 
-A simple and easy way to send notifications to Slack from your Rails application. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
+Add this line to your application's Gemfile:
 
 ```ruby
 gem 'slacked'
