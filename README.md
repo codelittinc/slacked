@@ -51,6 +51,7 @@ end
 ## Contributors
 
 - [Sean H.](https://github.com/seathony)
+- [Kaio Magalhães](https://github.com/kaiomagalhaes)
 
 ## License
 
