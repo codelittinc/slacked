@@ -31,7 +31,7 @@ SLACK_MESSAGE= "TEST"
 To send the message to slack use the method:
 
 ```ruby
-Slacked.post
+Slacked.post "This is a test post"
 ```
 
 ## Example
