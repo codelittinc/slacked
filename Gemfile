@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in slacked.gemspec
 gemspec
 
-gem "rails"
+gem 'rails'
 
 group :test do
-  gem "aruba", "~> 0.6.2"
+  gem 'aruba', '~> 0.6.2'
 end

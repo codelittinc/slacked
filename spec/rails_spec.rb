@@ -28,8 +28,8 @@ describe Slacked do
       expect(File.read(".env")).to include "SLACK_WEBHOOK"
     end
 
-    it 'should contain SLACK_MESSAGE' do
-      expect(File.read(".env")).to include "SLACK_MESSAGE"
+    it 'should contain SLACK_DEFAULT_MESSAGE' do
+      expect(File.read(".env")).to include "SLACK_DEFAULT_MESSAGE"
     end
   end
 end

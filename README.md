@@ -22,7 +22,7 @@ This will create a .env file in the root of the rails appication. Specify the We
 
 ```ruby
 SLACK_WEBHOOK= "WEBHOOK_URL"
-SLACK_MESSAGE= "TEST"
+SLACK_DEFAULT_MESSAGE= "TEST"
 ```
 
 
