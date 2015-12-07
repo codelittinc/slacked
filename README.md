@@ -1,6 +1,8 @@
 # Slacked
 
-A simple and easy way to send notifications to Slack from your Rails application. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
+This is a super simple Slack integration for Rails. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
+
+Are there other gems that provide similar functionality? Yes. Do some of them provide more flexibility? Yes. The point of this was to make installing and integrating a 30 second process.
 
 ## Getting Started
 
@@ -27,12 +29,35 @@ SLACK_DEFAULT_MESSAGE= "TEST"
 
 
 ## Usage
+Set the SLACK_WEBOOK env variable with the value of the webhook which you want to send the messages.
+If you want to send a unique message in your application like 'Application is running' you can set the SLACK_DEFAULT_MESSAGE and call the message methods without sending an argument.
 
-To send the message to slack use the method:
+
+### To send a sync message to slack use the method:
 
 ```ruby
 Slacked.post "This is a test post"
 ```
+
+or
+
+```ruby
+Slacked.post
+```
+The last example will use the SLACK_DEFAULT_MESSAGE value
+
+### To send an async message to slack use the method:
+
+```ruby
+Slacked.post_async "This is a test post"
+```
+
+or
+
+```ruby
+Slacked.post_async
+```
+The last example will use the SLACK_DEFAULT_MESSAGE value
 
 ## Example
 
@@ -43,7 +68,7 @@ class Post < ActiveRecord::Base
   private
   
   def slacked
-    Slacked.post
+    Slacked.post 'post created!'
   end
 end
 ```
