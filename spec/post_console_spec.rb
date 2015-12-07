@@ -14,7 +14,7 @@ describe ".env" do
   end
 
   it 'should contain SLACK_MESSAGE' do
-    expect(file).to include "SLACK_MESSAGE"
+    expect(file).to include "SLACK_DEFAULT_MESSAGE"
   end
 
   def file
