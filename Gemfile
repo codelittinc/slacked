@@ -7,4 +7,5 @@ gem 'rails'
 
 group :test do
   gem 'aruba', '~> 0.6.2'
+  gem 'pry'
 end

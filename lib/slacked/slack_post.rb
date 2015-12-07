@@ -14,7 +14,11 @@ module Slacked
     end
 
     def post_async message
-      Thread.start { post(message) }
+      Thread.start do
+        result = post(message)
+        defined?(ActiveRecord) ? ActiveRecord::Base.connection.close : nil
+        result
+      end
     end
 
     private
