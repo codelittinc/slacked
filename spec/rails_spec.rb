@@ -22,14 +22,4 @@ describe Slacked do
      check_file_presence([".env"], true)
    end
   end
-
-  describe ".env" do
-    it 'should contain SLACK_WEBHOOK' do
-      expect(File.read(".env")).to include "SLACK_WEBHOOK"
-    end
-
-    it 'should contain SLACK_DEFAULT_MESSAGE' do
-      expect(File.read(".env")).to include "SLACK_DEFAULT_MESSAGE"
-    end
-  end
 end
