@@ -9,8 +9,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ["sean"]
   spec.email         = ["seathony@gmail.com"]
 
-  spec.summary       = %q{Notify slack when an action has been completed.}
-  spec.description   = %q{Notify slack when an action has been completed.}
+  spec.summary       = %q{A super simple and easy way to send notifications to Slack from your Rails application.}
+  spec.description   = %q{This is a super simple Slack integration for Rails. A use case for this would be to post
+                          a notification in Slack when a new User is created or a certain action has been taken in
+                          your application.
+                          Are there other gems that provide similar functionality? Yes. Do some of them provide more
+                          flexibility? Yes. The point of this was to make installing and integrating a 30 second process.}
+
   spec.homepage      = "https://github.com/codelittinc/slacked"
   spec.license       = "MIT"
 
@@ -23,16 +28,17 @@ Gem::Specification.new do |spec|
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
+  spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec-mocks'
 
-  spec.add_dependency "slack-notifier"
-  spec.add_dependency "dotenv"
+  spec.add_dependency 'slack-notifier'
+  spec.add_dependency 'dotenv'
   spec.add_dependency 'thor'
   spec.add_dependency 'httparty'
 end
