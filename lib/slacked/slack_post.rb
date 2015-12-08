@@ -21,6 +21,12 @@ module Slacked
       end
     end
 
+    def disabled?
+      return false if rails?
+      rails_config = Rails.application.config
+      rails_config.config.respond_to?(:slacked_disabled) && rails_config.slacked_disabled
+    end
+
     private
     def slack_notifier webhook_url = ENV[SLACK_WEBHOOK_URL_KEY]
       Slack::Notifier.new webhook_url
@@ -28,12 +34,6 @@ module Slacked
 
     def rails?
       defined?(Rails)
-    end
-
-    def disabled?
-      return false if rails?
-      rails_config = Rails.application.config
-      rails_config.config.respond_to?(:slacked_disabled) && rails_config.slacked_disabled
     end
   end
 end

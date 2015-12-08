@@ -6,7 +6,7 @@ require 'slacked/version'
 Gem::Specification.new do |spec|
   spec.name          = "slacked"
   spec.version       = Slacked::VERSION
-  spec.authors       = ["sean"]
+  spec.authors       = ["Sean", "Kaio Magalhães", "Locky"]
   spec.email         = ["seathony@gmail.com"]
 
   spec.summary       = %q{A super simple and easy way to send notifications to Slack from your Rails application.}
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'bundler', '~> 1.9.5'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rspec-mocks'
