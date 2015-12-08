@@ -22,7 +22,7 @@ module Slacked
     end
 
     def disabled?
-      return false if rails?
+      return false unless rails?
       rails_config = Rails.application.config
       rails_config.config.respond_to?(:slacked_disabled) && rails_config.slacked_disabled
     end
