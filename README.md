@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/slacked.svg)](https://badge.fury.io/rb/slacked)
+
 # Slacked
 
 This is a super simple Slack integration for Rails. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
