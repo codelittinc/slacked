@@ -88,8 +88,10 @@ The default value is false
 
 ## Contributors
 
-- [Sean H.](https://github.com/seathony)
 - [Kaio Magalhães](https://github.com/kaiomagalhaes)
+- [Lockyy](https://github.com/Lockyy)
+- [Sean H.](https://github.com/seathony)
+
 
 ## License
 
