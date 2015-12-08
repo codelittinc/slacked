@@ -8,7 +8,7 @@ module Slacked
 
   class << self
     def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY]
-      return false if message.nil? || message.empty?
+      return false if message.nil? || message.empty? || disabled?
       notifier = slack_notifier
       notifier.ping message, SLACK_CONFIG
     end
@@ -24,6 +24,16 @@ module Slacked
     private
     def slack_notifier webhook_url = ENV[SLACK_WEBHOOK_URL_KEY]
       Slack::Notifier.new webhook_url
+    end
+
+    def rails?
+      defined?(Rails)
+    end
+
+    def disabled?
+      return false if rails?
+      rails_config = Rails.application.config
+      rails_config.config.respond_to?(:slacked_disabled) && rails_config.slacked_disabled
     end
   end
 end
