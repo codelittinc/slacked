@@ -4,6 +4,8 @@ This is a super simple Slack integration for Rails. A use case for this would be
 
 Are there other gems that provide similar functionality? Yes. Do some of them provide more flexibility? Yes. The point of this was to make installing and integrating a 30 second process.
 
+This gem can be used with a rails application and enabled/disabled based on the environment config as you may see below
+
 ## Getting Started
 
 Add this line to your application's Gemfile:
@@ -72,6 +74,15 @@ class Post < ActiveRecord::Base
   end
 end
 ```
+
+## Using with rails
+If you are using this gem inside a rails application you can enable or disable it based on your environment, to do it you only need to add the code below in your config file.
+
+```ruby
+config.slacked_disabled = true
+```
+
+The default value is false
 
 ## Contributors
 
