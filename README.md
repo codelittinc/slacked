@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/slacked.svg)](https://badge.fury.io/rb/slacked)
+[![Gem Version](https://badge.fury.io/rb/slacked.svg)](https://badge.fury.io/rb/slacked) [![Circle CI](https://circleci.com/gh/codelittinc/slacked.svg?style=svg)](https://circleci.com/gh/codelittinc/slacked)
 
 # Slacked
 
