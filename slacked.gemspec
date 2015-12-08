@@ -6,7 +6,7 @@ require 'slacked/version'
 Gem::Specification.new do |spec|
   spec.name          = "slacked"
   spec.version       = Slacked::VERSION
-  spec.authors       = ["sean"]
+  spec.authors       = ["Sean", "Kaio Magalhães", "Locky"]
   spec.email         = ["seathony@gmail.com"]
 
   spec.summary       = %q{A super simple and easy way to send notifications to Slack from your Rails application.}
