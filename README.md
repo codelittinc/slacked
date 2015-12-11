@@ -2,7 +2,7 @@
 
 # Slacked
 
-This is a super simple Slack integration for Rails. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
+This is a super simple Slack integration for Ruby and for Ruby and Rails applications. A use case for this would be to post a notification in Slack when a new User is created or a certain action has been taken in your application.
 
 Are there other gems that provide similar functionality? Yes. Do some of them provide more flexibility? Yes. The point of this was to make installing and integrating a 30 second process.
 
@@ -10,7 +10,15 @@ This gem can be used with a rails application and enabled/disabled based on the 
 
 ## Getting Started
 
-Add this line to your application's Gemfile:
+#### without rails
+
+```ruby
+gem install slacked
+```
+
+
+#### With rails
+ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'slacked'
