@@ -6,15 +6,17 @@ module Slacked
       desc 'Copy a Slacked file to your appplication'
 
       def create_configuration
-        if !File.exist?('.env')
-          copy_file('.env', '.env')
-        elsif !File.readlines('.env').grep(/SLACK_/).any?
+        file_name = '.env'
+
+        if !File.exist?(file_name)
+          copy_file(file_name, file_name)
+        elsif !File.readlines(file_name).grep(/SLACK_/).any?
           template_dir = self.class.source_root
           lines = ''
-          File.readlines("#{template_dir}/.env").each do |line|
+          File.readlines("#{template_dir}/#{file_name}").each do |line|
             lines << line
           end
-          append_file('.env', lines)
+          append_file(file_name, lines)
         end
       end
     end
