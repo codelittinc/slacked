@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rails'
-gem 'bundler', '~> 1.10.6'
-
 
 group :test do
   gem 'aruba', '~> 0.6.2'
