@@ -17,15 +17,23 @@ describe Slacked do
     end
 
     it 'uses the env variable SLACK_DEFAULT_MESSAGE if no message is passed' do
-      expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, Slacked::SLACK_CONFIG).and_return(true)
+      expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, Slacked::SLACK_DEFAULT_CONFIG).and_return(true)
       ENV[Slacked::SLACK_DEFAULT_MESSAGE_KEY] = message
       expect(Slacked.post).to be_truthy
+    end
+
+    it 'merges with the default config when config is passed' do
+      config =  {
+          icon_emoji: ':ghost:'
+      }
+      expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, config).and_return(true)
+      expect(Slacked.post(message, config)).to be_truthy
     end
   end
 
   context 'calls ping method of Slack Notifier' do
     before(:each) {
-      expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, Slacked::SLACK_CONFIG).and_return(true)
+      expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, Slacked::SLACK_DEFAULT_CONFIG).and_return(true)
     }
 
     context 'async' do
