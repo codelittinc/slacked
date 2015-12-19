@@ -79,7 +79,7 @@ Slacked.post "I have a message from the underworld!", {icon_emoji: ':ghost:'}
 
 or
 ```ruby
-Slacked.post_async "Let's eat that shit!", {icon_emoji: ':dog:'}
+Slacked.post_async "Let's play fetch!", {icon_emoji: ':dog:'}
 ```
 
 Right now we only have the config for the icon, if you need another one let us know or submit a pull request.
