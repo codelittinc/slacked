@@ -12,7 +12,7 @@ module Slacked
           copy_file(file_name, file_name)
         elsif !File.readlines(file_name).grep(/SLACK_/).any?
           template_dir = self.class.source_root
-          lines = ''
+          lines = "\n"
           File.readlines("#{template_dir}/#{file_name}").each do |line|
             lines << line
           end
