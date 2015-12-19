@@ -71,6 +71,19 @@ Slacked.post_async
 ```
 The last example will use the SLACK_DEFAULT_MESSAGE value
 
+### To pass the config:
+
+```ruby
+Slacked.post "I have a message from the underworld!", {icon_emoji: ':ghost:'}
+```
+
+or
+```ruby
+Slacked.post_async "Let's play fetch!", {icon_emoji: ':dog:'}
+```
+
+Right now we only have the config for the icon, if you need another one let us know or submit a pull request.
+
 ## Example
 
 ```ruby

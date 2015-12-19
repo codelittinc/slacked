@@ -2,20 +2,19 @@ module Slacked
   SLACK_PROFILE_IMAGE=':robot_face:'
   SLACK_WEBHOOK_URL_KEY='SLACK_WEBHOOK'
   SLACK_DEFAULT_MESSAGE_KEY='SLACK_DEFAULT_MESSAGE'
-  SLACK_CONFIG= {
+  SLACK_DEFAULT_CONFIG= {
       icon_emoji: SLACK_PROFILE_IMAGE
   }
 
   class << self
-    def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY]
+    def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY], config = SLACK_DEFAULT_CONFIG
       return false if message.nil? || message.empty? || disabled?
-      notifier = slack_notifier
-      notifier.ping message, SLACK_CONFIG
+      slack_notifier.ping message, SLACK_DEFAULT_CONFIG.merge(config)
     end
 
-    def post_async message
+    def post_async message= ENV[SLACK_DEFAULT_MESSAGE_KEY], config = SLACK_DEFAULT_CONFIG
       Thread.start do
-        result = post(message)
+        result = post(message, config)
         defined?(ActiveRecord) ? ActiveRecord::Base.connection.close : nil
         result
       end
