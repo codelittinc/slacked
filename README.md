@@ -32,7 +32,7 @@ Then run the installer:
 
     $ bundle exec rails g slacked:install
 
-This will create a .env file in the root of the rails appication. Specify the Webhook Url and the message to be sent.
+This will create a .env file in the root of the rails application. Specify the Webhook Url and the message to be sent.
 
 ```ruby
 SLACK_WEBHOOK= "WEBHOOK_URL"
@@ -78,7 +78,7 @@ class Post < ActiveRecord::Base
   after_create :slacked
 
   private
-  
+
   def slacked
     Slacked.post 'post created!'
   end
@@ -104,4 +104,3 @@ The default value is false
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
