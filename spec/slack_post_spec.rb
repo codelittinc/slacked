@@ -50,4 +50,10 @@ describe Slacked do
       end
     end
   end
+
+  context 'slack_notifier is singleton?' do
+    it 'instance equals' do
+      expect(Slacked.send(:slack_notifier)).to eq Slacked.send(:slack_notifier)
+    end
+  end
 end
