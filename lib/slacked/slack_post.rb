@@ -7,6 +7,8 @@ module Slacked
   }
 
   class << self
+    attr_reader :slack_notifier_ins
+
     def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY], config = SLACK_DEFAULT_CONFIG
       return false if message.nil? || message.empty? || disabled?
       slack_notifier.ping message, SLACK_DEFAULT_CONFIG.merge(config)
@@ -28,7 +30,8 @@ module Slacked
 
     private
     def slack_notifier webhook_url = ENV[SLACK_WEBHOOK_URL_KEY]
-      Slack::Notifier.new webhook_url
+      @slack_notifier_ins ||= Slack::Notifier.new webhook_url
+      slack_notifier_ins
     end
 
     def rails?
