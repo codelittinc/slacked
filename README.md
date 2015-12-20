@@ -41,7 +41,7 @@ SLACK_DEFAULT_MESSAGE= "TEST"
 
 
 ## Usage
-Set the SLACK_WEBOOK env variable with the value of the webhook which you want to send the messages.
+Set the SLACK_WEBHOOK env variable with the value of the webhook which you want to send the messages.
 If you want to send a unique message in your application like 'Application is running' you can set the SLACK_DEFAULT_MESSAGE and call the message methods without sending an argument.
 
 
