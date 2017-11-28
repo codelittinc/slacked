@@ -14,7 +14,7 @@ module Slacked
 
     def post_async message= ENV[SLACK_DEFAULT_MESSAGE_KEY], webhook_url = ENV[SLACK_WEBHOOK_URL_KEY], config = SLACK_DEFAULT_CONFIG
       Thread.start do
-        result = post(message, config, webhook_url)
+        result = post(message, webhook_url, config)
         defined?(ActiveRecord) ? ActiveRecord::Base.connection.close : nil
         result
       end
