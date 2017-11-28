@@ -71,15 +71,21 @@ Slacked.post_async
 ```
 The last example will use the SLACK_DEFAULT_MESSAGE value
 
+### To pass the webhook url
+
+```ruby
+Slacked.post "I have a message for a specific channel!", <WEBHOOK_IRL>
+```
+
 ### To pass the config:
 
 ```ruby
-Slacked.post "I have a message from the underworld!", {icon_emoji: ':ghost:'}
+Slacked.post "I have a message from the underworld!", ENV['SLACK_WEBHOOK'], {icon_emoji: ':ghost:'}
 ```
 
 or
 ```ruby
-Slacked.post_async "Let's play fetch!", {icon_emoji: ':dog:'}
+Slacked.post_async "Let's play fetch!", ENV['SLACK_WEBHOOK'], {icon_emoji: ':dog:'}
 ```
 
 Right now we only have the config for the icon, if you need another one let us know or submit a pull request.
@@ -112,7 +118,7 @@ The default value is false
 - [Kaio Magalhães](https://github.com/kaiomagalhaes)
 - [Lockyy](https://github.com/Lockyy)
 - [Sean H.](https://github.com/seathony)
-
+- [Tomas Barry](https://github.com/TomasBarry)
 
 ## License
 
