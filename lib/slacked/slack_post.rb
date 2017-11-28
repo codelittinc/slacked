@@ -7,12 +7,12 @@ module Slacked
   }
 
   class << self
-    def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY], webhook_url = ENV[SLACK_WEBHOOK], config = SLACK_DEFAULT_CONFIG
+    def post message = ENV[SLACK_DEFAULT_MESSAGE_KEY], webhook_url = ENV[SLACK_WEBHOOK_URL_KEY], config = SLACK_DEFAULT_CONFIG
       return false if message.nil? || message.empty? || disabled?
       slack_notifier(webhook_url).ping message, SLACK_DEFAULT_CONFIG.merge(config)
     end
 
-    def post_async message= ENV[SLACK_DEFAULT_MESSAGE_KEY], webhook_url = ENV[SLACK_WEBHOOK], config = SLACK_DEFAULT_CONFIG
+    def post_async message= ENV[SLACK_DEFAULT_MESSAGE_KEY], webhook_url = ENV[SLACK_WEBHOOK_URL_KEY], config = SLACK_DEFAULT_CONFIG
       Thread.start do
         result = post(message, webhook_url, config)
         defined?(ActiveRecord) ? ActiveRecord::Base.connection.close : nil
