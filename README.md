@@ -32,7 +32,7 @@ Then run the installer:
 
     $ bundle exec rails g slacked:install
 
-This will create a .env file in the root of the rails application. Specify the Webhook Url and the message to be sent.
+This will create a .env file in the root of the rails application. Specify the default Webhook Url and the message to be sent.
 
 ```ruby
 SLACK_WEBHOOK= "WEBHOOK_URL"
@@ -41,7 +41,7 @@ SLACK_DEFAULT_MESSAGE= "TEST"
 
 
 ## Usage
-Set the SLACK_WEBHOOK env variable with the value of the webhook which you want to send the messages.
+Set the SLACK_WEBHOOK env variable with the default value of the webhook which you want to send the messages. If you would like to send messages to different webhooks, you can do so by specifying the webhook url in the `config` parameter to `Slacked#post` or `Slacked#post_async`.
 If you want to send a unique message in your application like 'Application is running' you can set the SLACK_DEFAULT_MESSAGE and call the message methods without sending an argument.
 
 
@@ -82,7 +82,12 @@ or
 Slacked.post_async "Let's play fetch!", {icon_emoji: ':dog:'}
 ```
 
-Right now we only have the config for the icon, if you need another one let us know or submit a pull request.
+or
+```ruby
+Slacked.post_async 'This goes to a specific channel!', {webhook_url: <WEBHOOK_URL>}
+```
+
+Right now we only have the config for the icon and the webhook url, if you need another one let us know or submit a pull request.
 
 ## Example
 
@@ -107,11 +112,12 @@ config.slacked_disabled = true
 
 The default value is false
 
-## Contributors
+## Contributors 
 
 - [Kaio Magalhães](https://github.com/kaiomagalhaes)
 - [Lockyy](https://github.com/Lockyy)
 - [Sean H.](https://github.com/seathony)
+- [Tomas Barry](https://github.com/TomasBarry)
 
 
 ## License

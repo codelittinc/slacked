@@ -23,8 +23,9 @@ describe Slacked do
     end
 
     it 'merges with the default config when config is passed' do
-      config =  {
-          icon_emoji: ':ghost:'
+      config = {
+        icon_emoji: ':ghost:',
+        webhook_url: 'WEBHOOK_URL'
       }
       expect_any_instance_of(Slack::Notifier).to receive(:ping).with(message, config).and_return(true)
       expect(Slacked.post(message, config)).to be_truthy
